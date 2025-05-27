@@ -1,13 +1,19 @@
 package com.pluralsight.models;
 
 public class Chips implements OrderItem{
-    @Override
-    public double getPrice() {
-        return 0;
+    private String name;
+    private double price = 1.50;
+
+    public Chips(String name) {
+        this.name = name;
     }
 
     @Override
-    public String getDescription() {
-        return "";
+    public String getName() {
+        return name + "Chips";
+    }
+    @Override
+    public double getPrice() {
+        return price;
     }
 }

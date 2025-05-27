@@ -9,7 +9,7 @@ public class ForkApp {
         UserInterface ui= new UserInterface();
 
         //Call the menuMenu method
-        ui.menuMenu();
+        ui.mainMenu();
 
     }
 }
