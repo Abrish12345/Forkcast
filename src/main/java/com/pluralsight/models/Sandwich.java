@@ -142,11 +142,19 @@ public void calculatePrice(){
 
     @Override
     public String getDescription() {
-        return size + "\" Sandwich on " + breadType + (toasted ? " toasted" : "");
+        return size + "\" Sandwich on " + breadType + (toasted ? " toasted" : "") +
+                "\n Meat: " + (meats.isEmpty() ? "None" : meats.toString()) +
+                "\n Cheese: " + (cheeses.isEmpty() ? "None" : cheeses.toString()) +
+                "\n Regular Topping: " + (regularToppings.isEmpty() ? "None" : regularToppings.toString()) +
+                "\n Sauces: " + (sauces.isEmpty() ? "None" : sauces.toString());
     }
     @Override
     public double getPrice() {
         calculatePrice();//Ensure the price is always up to date
         return price;
+    }
+    @Override
+    public String toString(){
+        return getDescription();
     }
 }

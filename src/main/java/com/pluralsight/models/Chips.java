@@ -10,7 +10,7 @@ public class Chips implements MenuItem {
 
     @Override
     public String getDescription() {
-        return name + "Chips";
+        return name + " Chips";
     }
     @Override
     public double getPrice() {

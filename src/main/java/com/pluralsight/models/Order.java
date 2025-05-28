@@ -24,6 +24,7 @@ public class Order {
             return "No items in your order";
         }
         StringBuilder summary = new StringBuilder();
+        summary.append("----Order Details----\n");
         for (MenuItem item: items){
             summary.append(item.getDescription())
                     .append(" - $")

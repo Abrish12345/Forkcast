@@ -1,5 +1,7 @@
 package com.pluralsight.ui;
 
+import com.pluralsight.models.Chips;
+import com.pluralsight.models.Drink;
 import com.pluralsight.models.Order;
 import com.pluralsight.models.Sandwich;
 
@@ -65,12 +67,19 @@ public class UserInterface {
 
                 //add the sandwich to the current order after finishing customization
                 currentOrder.addItem(sandwich);
+                System.out.println(sandwich);
                 System.out.println("Sandwich added to your order. ");
 
                 break;
             case "2":
-                System.out.println("Add Drink");
-                drinks();                                   //Add drink options selected
+                System.out.println("Add Drink");            //Add drink options selected
+                String drinkSize = drinkSize();            //ask for size
+                if (drinkSize.equals("Exit"))break;
+                String drinkName= drinkName();           //ask for drink type
+                if (drinkName.equals("Exit"))break;
+                Drink drink= new Drink(drinkName,drinkSize);
+                currentOrder.addItem(drink);
+                System.out.println(drink.getDescription() + " added to your order. ");
                 break;
             case "3":
                 System.out.println("Add Chips");          //Add chips options selected
@@ -161,9 +170,7 @@ public class UserInterface {
                     System.out.println("Please choose a valid number.  ");
                     break;
 
-
             }
-
         }
     }
 
@@ -414,7 +421,7 @@ public class UserInterface {
 
         }
     }
-    public double drinks() {
+    public String drinkSize() {
         while (true) {
             System.out.println("Would you like a drink?");
             System.out.println("1) small ($2.00)");
@@ -427,45 +434,106 @@ public class UserInterface {
             switch (choice) { //remove extra spaces
                 case "1":
                     System.out.println("Small drink added - $2.00");
-                    return 2.00;
+                    return "Small";
                 case "2":
                     System.out.println("Medium drink added - $2.50");
-                    return 2.50;
+                    return "Medium";
                 case "3":
                     System.out.println("Large drink added - $3.00");
-                    return 3.00;
+                    return "Large";
                 case "0":
                     System.out.println("No drink added.");
-                    return 0.00;
+                    return "Exit";
                 default:
                     System.out.println("Invalid choice: " + choice);//handle invalid input
                     break;
             }
 
+        }
+
+    }
+    public String drinkName() {
+        while (true) {
+            System.out.println("Choose a drink:");
+            System.out.println("1) Coke");
+            System.out.println("2) Sprite");
+            System.out.println("3) Water");
+            System.out.println("4) Iced Tea");
+            System.out.println("0) Cancel");
+
+            String drinkName = "";
+            String choice = scanner.nextLine();
+
+            switch (choice) {
+                case "1":
+                    return  "Coke";
+
+                case "2":
+                    return  "Sprite";
+
+                case "3":
+                    return  "Water";
+
+                case "4":
+                    return  "Iced Tea";
+
+                case "0":
+                    System.out.println("Drink selection cancelled. ");
+                    return "Exit";
+                default:
+                    System.out.println("Invalid choice: " + choice);//handle invalid input
+                    break;
+            }
         }
     }
-    public double chips() {
+    public String chips() {
         while (true) {
-            System.out.println("would you like chips? ($1.50)");
-            System.out.println("1) Yes");
-            System.out.println("2) No");
+            System.out.println("Choose a Chips:");
+            System.out.println("1) Doritos");
+            System.out.println("2) SunChips");
+            System.out.println("3) Cheetos");
+            System.out.println("4) Lays");
+            System.out.println("5) Salt and Vinegar");
+            System.out.println("0) Cancel");
 
             String choice = scanner.nextLine();
-            switch (choice) { //remove extra spaces
-                case "1":
-                    System.out.println("Chips added - $1.50");
-                    return 1.50;
-                case "2":
-                    System.out.println("No chips added.");
-                    return 0.00;
-                default:
-                    System.out.println("Invalid choice: " + choice);//handle invalid input
-                    break;
+            if (choice.equals("0")) {
+                System.out.println("Chips selection cancelled. ");
+                return "Exit";
+            }
+            String[] choices = choice.split(",");
+            //loop through e ach selected choice
+            for (String result : choices) {
+                switch (result.trim()) { //remove extra spaces
+                    case "1":
+                        currentOrder.addItem(new Chips("Doritos"));
+                        System.out.println("Doritos added to your order");
+                        break;
+                    case "2":
+                    currentOrder.addItem(new Chips("SunChips"));
+                        System.out.println("SunChips added to your order");
+                        break;
+                    case "3":
+                        currentOrder.addItem(new Chips("Cheetos"));
+                        System.out.println("Cheetos added to your order");
+                        break;
+                    case "4":
+                        currentOrder.addItem(new Chips("Lays"));
+                        System.out.println("Lays added to your order");
+                        break;
+                    case "5":
+                        currentOrder.addItem(new Chips("Salt and Vinegar"));
+                        System.out.println("Salt and Vinegar added to your order");
+                        break;
+                    default:
+                        System.out.println("Invalid choice: " + result.trim());//handle invalid input
+                        break;
+                }
 
             }
-
-
+            return "Chips added to order. ";
         }
+
     }
     public boolean toasted() {
         while (true) {
@@ -490,10 +558,13 @@ public class UserInterface {
     }
     //method to process checkout
     public void checkOut(){
-        System.out.println("Your order summery: ");
+        System.out.println("\n============================= ");
+        System.out.println("        Your Order Summery: ");
+        System.out.println("=============================");
         System.out.println(currentOrder.getOrderSummary());
+        System.out.println("----------------------------- ");
         System.out.println("Total: $" + currentOrder.getTotalPrice());
-        System.out.println("Thank you for your order");
+        System.out.println("Thank you for your order!\n");
         currentOrder= new Order(); //reset order after checkout
         mainMenu(); //return to main menu
     }
