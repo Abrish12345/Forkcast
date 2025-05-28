@@ -1,6 +1,6 @@
 package com.pluralsight.models;
 
-public class Chips implements OrderItem{
+public class Chips implements MenuItem {
     private String name;
     private double price = 1.50;
 
@@ -9,7 +9,7 @@ public class Chips implements OrderItem{
     }
 
     @Override
-    public String getName() {
+    public String getDescription() {
         return name + "Chips";
     }
     @Override

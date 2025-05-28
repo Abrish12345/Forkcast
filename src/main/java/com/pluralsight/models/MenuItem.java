@@ -1,7 +1,7 @@
 package com.pluralsight.models;
 
-public interface OrderItem {
+public interface MenuItem {
     double getPrice();
-    String getName();
+    String getDescription();
 
 }
