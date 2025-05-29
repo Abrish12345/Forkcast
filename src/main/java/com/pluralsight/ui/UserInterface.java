@@ -274,7 +274,7 @@ public class UserInterface {
 
 
 
-            askMultipleQuestion("Please chose your meat topping? ", Arrays.asList("Steak", "Ham", "Salami","Roast Beef","Chicken","Bacon","None"));
+            askMultipleQuestion("\uD83E\uDD69 Please chose your meat topping? ", Arrays.asList("1\uFE0F⃣ Steak", " 2\uFE0F⃣ Ham", " 3\uFE0F⃣ Salami"," 4\uFE0F⃣ Roast Beef"," 5\uFE0F⃣ Chicken"," 6\uFE0F⃣ Bacon"," 0\uFE0F⃣ None"));
 
             //read user input
             String choice = scanner.nextLine();
