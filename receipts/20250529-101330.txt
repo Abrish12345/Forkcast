@@ -1,0 +1,11 @@
+----Order Details----
+8" Sandwich on wheat (toasted)
+Meat: [Steak, Ham, Salami] (Extra Meat: [Steak, Ham])
+Cheese: [american, provolone] (Extra Cheese: [american, provolone])
+Toppings: [Lettuce, peppers, Onions]
+Sauces: [Mayo] - $19.20
+Medium Sprite - $2.50
+
+
+Total Price: $21.70
+Thanks for your order

@@ -1,0 +1,10 @@
+----Order Details----
+4" Sandwich on white toasted
+ Meat: None (Extra Meat): None
+ Cheese: None (Extra Cheese): None
+ Regular Topping: [Lettuce]
+ Sauces: None - $5.50
+
+
+Total Price: $5.50
+Thanks for your order

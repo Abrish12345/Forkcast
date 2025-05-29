@@ -1,0 +1,13 @@
+----Order Details----
+4" Sandwich on wheat toasted
+ Meat: [Ham, Salami] (Extra Meat): [Steak]
+ Cheese: [american, provolone] (Extra Cheese): [american]
+ Regular Topping: [Lettuce, peppers]
+ Sauces: [Mayo] - $9.00
+Medium Sprite - $2.50
+Doritos Chips - $1.50
+SunChips Chips - $1.50
+
+
+Total Price: $14.50
+Thanks for your order

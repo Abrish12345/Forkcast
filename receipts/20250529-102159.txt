@@ -1,0 +1,14 @@
+----Order Details----
+4" Sandwich on white (toasted)
+Meat: [Steak, Ham, Salami] (Extra Meat: [Steak, Ham, Salami])
+Cheese: [american, provolone] (Extra Cheese: [american, provolone])
+Toppings: [Lettuce, peppers, Onions, Tomatoes]
+Sauces: [Mayo, Mustard] - $12.10
+Small Coke - $2.00
+Doritos Chips - $1.50
+SunChips Chips - $1.50
+Cheetos Chips - $1.50
+
+
+Total Price: $18.60
+Thanks for your order

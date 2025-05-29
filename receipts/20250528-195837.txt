@@ -1,0 +1,8 @@
+----Order Details----
+4" Sandwich on white toasted
+ Meat: [Steak, Ham, Salami, Roast Beef] (Extra Meat): [Steak, Ham, Salami, Roast Beef]
+ Cheese: [american, provolone] (Extra Cheese): [american, provolone, cheddar, swiss]
+ Regular Topping: [Lettuce, peppers, Onions, Tomatoes]
+ Sauces: [Mayo] - $11.00
+
+Total Price: $11.00

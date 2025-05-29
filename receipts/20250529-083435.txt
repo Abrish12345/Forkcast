@@ -1,0 +1,11 @@
+----Order Details----
+8" Sandwich on wheat toasted
+ Meat: [Steak] (Extra Meat): [Steak]
+ Cheese: [american] (Extra Cheese): [provolone]
+ Regular Topping: [Lettuce]
+ Sauces: [Mustard] - $10.50
+Medium Sprite - $2.50
+
+
+Total Price: $13.00
+Thanks for your order

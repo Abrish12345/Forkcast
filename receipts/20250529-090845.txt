@@ -1,0 +1,12 @@
+----Order Details----
+4" Sandwich on rye toasted
+ Meat: [Ham, Chicken] (Extra Meat): [Roast Beef, Bacon]
+ Cheese: [cheddar] (Extra Cheese): [cheddar]
+ Regular Topping: [Onions, Jalapeños]
+ Sauces: [Mustard] - $9.55
+Medium Sprite - $2.50
+SunChips Chips - $1.50
+
+
+Total Price: $13.55
+Thanks for your order

@@ -4,36 +4,39 @@ import com.pluralsight.models.Chips;
 import com.pluralsight.models.Drink;
 import com.pluralsight.models.Order;
 import com.pluralsight.models.Sandwich;
+import com.pluralsight.util.ReceiptWriter;
 
+import javax.imageio.IIOException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner; //import scanner to read user input
 
 public class UserInterface {
-    private Order currentOrder= new Order();
+    private Order currentOrder = new Order();
     Scanner scanner = new Scanner(System.in); //create a scanner instance for input
 
     //Display the main menu where the user can start a new order or exist
     public void mainMenu() {
-        while(true){
+        while (true) {
 
-        System.out.println("1. New Order");     //menu option one
-        System.out.println("0. Exit");         //menu option to exist
-        String choice = scanner.nextLine();   //read users input
+            System.out.println("1. New Order");     //menu option one
+            System.out.println("0. Exit");         //menu option to exist
+            String choice = scanner.nextLine();   //read users input
 
-        switch (choice) {
-            case "1":
-                System.out.println("New Order");  //Display message
-                orderScreen();                   //go to the order screen
-                break;
+            switch (choice) {
+                case "1":
+                    System.out.println("New Order");  //Display message
+                    orderScreen();                   //go to the order screen
+                    break;
 
-            case "0":
-                System.out.println("Exit"); //exit message
-                return; //exit the method
+                case "0":
+                    System.out.println("Exit"); //exit message
+                    return; //exit the method
 
-            default:
-                System.out.println("Please chose either 'New Order' or 'Exit'"); //Error message
-                break;
+                default:
+                    System.out.println("Please chose either 'New Order' or 'Exit'"); //Error message
+                    break;
 
             }
         }
@@ -42,59 +45,65 @@ public class UserInterface {
 
     //Display the order screen with options to add items or checkouts
     public void orderScreen() {
-        while (true){
-        System.out.println("1. Add Sandwich");      //option 1
-        System.out.println("2. Add Drink");        //option 2
-        System.out.println("3. Add Chips");       //option 3
-        System.out.println("4. Checkout");       //option 4
-        System.out.println("0. Cancel Order");  //option 0 to cancel
+        while (true) {
+            System.out.println("1. Add Sandwich");      //option 1
+            System.out.println("2. Add Drink");        //option 2
+            System.out.println("3. Add Chips");       //option 3
+            System.out.println("4. Checkout");       //option 4
+            System.out.println("0. Cancel Order");  //option 0 to cancel
 
-        String choice = scanner.nextLine();   //Read user input
+            String choice = scanner.nextLine();   //Read user input
 
-        switch (choice) {
+            switch (choice) {
 
-            case "1":
-                System.out.println("Add Sandwich");           //Add sandwich options selected
-                Sandwich sandwich = new Sandwich();
-                size(sandwich);
-                breadType(sandwich);
-                boolean isToasted = toasted();
-                sandwich.setToasted(isToasted);
-                regularToppings(sandwich);
-                meat(sandwich);
-                cheese(sandwich);
-                sauces(sandwich);
+                case "1":
+                    System.out.println("Add Sandwich");           //Add sandwich options selected
+                    Sandwich sandwich = new Sandwich();
+                    size(sandwich);
+                    breadType(sandwich);
+                    boolean isToasted = toasted();
+                    sandwich.setToasted(isToasted);
+                    regularToppings(sandwich);
+                    meat(sandwich);
+                    extraMeat(sandwich);
+                    cheese(sandwich);
+                    extraCheese(sandwich);
+                    sauces(sandwich);
 
-                //add the sandwich to the current order after finishing customization
-                currentOrder.addItem(sandwich);
-                System.out.println(sandwich);
-                System.out.println("Sandwich added to your order. ");
+                    //add the sandwich to the current order after finishing customization
+                    currentOrder.addItem(sandwich);
+                    System.out.println(sandwich);
+                    System.out.println("Sandwich added to your order. ");
 
-                break;
-            case "2":
-                System.out.println("Add Drink");            //Add drink options selected
-                String drinkSize = drinkSize();            //ask for size
-                if (drinkSize.equals("Exit"))break;
-                String drinkName= drinkName();           //ask for drink type
-                if (drinkName.equals("Exit"))break;
-                Drink drink= new Drink(drinkName,drinkSize);
-                currentOrder.addItem(drink);
-                System.out.println(drink.getDescription() + " added to your order. ");
-                break;
-            case "3":
-                System.out.println("Add Chips");          //Add chips options selected
-                chips();
-                break;
-            case "4":
-                checkOut();
-                System.out.println("Checkout");         //proceed to checkout
-                break;
-            case "0":
-                System.out.println("Cancel Order");   //order is cancelled
-                currentOrder = new Order(); //CLEAR CURRENT ORDER IF WE WANT TO DISCARD
-                break;
-            default:
-                System.out.println("please choose again"); //invalid input
+
+                    break;
+                case "2":
+                    System.out.println("Add Drink");            //Add drink options selected
+                    String drinkSize = drinkSize();            //ask for size
+                    if (drinkSize.equals("Exit")) break;
+                    String drinkName = drinkName();           //ask for drink type
+                    if (drinkName.equals("Exit")) break;
+                    Drink drink = new Drink(drinkName, drinkSize);
+                    currentOrder.addItem(drink);
+                    System.out.println(drink.getDescription() + " added to your order. ");
+                    break;
+                case "3":
+                    System.out.println("Add Chips");          //Add chips options selected
+                    chips(currentOrder);
+                    break;
+                case "4":
+                    checkOut();
+                    System.out.println("Checkout");         //proceed to checkout
+                    System.out.println(currentOrder.getOrderSummary());
+                    System.out.println("Total: $" + String.format("%.2f", currentOrder.getTotalPrice()));
+
+                    break;
+                case "0":
+                    System.out.println("Cancel Order");   //order is cancelled
+                    currentOrder = new Order(); //CLEAR CURRENT ORDER IF WE WANT TO DISCARD
+                    return;
+                default:
+                    System.out.println("please choose again"); //invalid input
 
             }
         }
@@ -116,7 +125,7 @@ public class UserInterface {
             //check the user's input and print the selected bread type
             if (choice.equals("1")) {
                 sandwich.setBreadType("white");
-                System.out.println("you choice white bread");
+                System.out.println("you chose white bread");
                 return;
             } else if (choice.equals("2")) {
                 sandwich.setBreadType("wheat");
@@ -314,6 +323,7 @@ public class UserInterface {
 
         }
     }
+
     public void cheese(Sandwich sandwich) {
         while (true) {
             System.out.println("Please chose your cheese topping? ");
@@ -365,6 +375,7 @@ public class UserInterface {
 
         }
     }
+
     public void sauces(Sandwich sandwich) {
         while (true) {
             System.out.println("Please chose your sauces topping? ");
@@ -379,7 +390,7 @@ public class UserInterface {
             String sauceChoice = scanner.nextLine();
 
             if (sauceChoice.equals("0")) {
-                System.out.println("No cheese toppings added"); // if the user selects none
+                System.out.println("No sauces added"); // if the user selects none
                 return;
 
             }
@@ -415,12 +426,12 @@ public class UserInterface {
 
                         break;
                 }
-                return;
 
             }
-
+            return;
         }
     }
+
     public String drinkSize() {
         while (true) {
             System.out.println("Would you like a drink?");
@@ -452,6 +463,7 @@ public class UserInterface {
         }
 
     }
+
     public String drinkName() {
         while (true) {
             System.out.println("Choose a drink:");
@@ -466,16 +478,16 @@ public class UserInterface {
 
             switch (choice) {
                 case "1":
-                    return  "Coke";
+                    return "Coke";
 
                 case "2":
-                    return  "Sprite";
+                    return "Sprite";
 
                 case "3":
-                    return  "Water";
+                    return "Water";
 
                 case "4":
-                    return  "Iced Tea";
+                    return "Iced Tea";
 
                 case "0":
                     System.out.println("Drink selection cancelled. ");
@@ -486,7 +498,8 @@ public class UserInterface {
             }
         }
     }
-    public String chips() {
+
+    public String chips(Order currentOrder) {
         while (true) {
             System.out.println("Choose a Chips:");
             System.out.println("1) Doritos");
@@ -510,7 +523,7 @@ public class UserInterface {
                         System.out.println("Doritos added to your order");
                         break;
                     case "2":
-                    currentOrder.addItem(new Chips("SunChips"));
+                        currentOrder.addItem(new Chips("SunChips"));
                         System.out.println("SunChips added to your order");
                         break;
                     case "3":
@@ -535,6 +548,7 @@ public class UserInterface {
         }
 
     }
+
     public boolean toasted() {
         while (true) {
             System.out.println("Do you like your bread to be toasted? yes or no ");
@@ -544,7 +558,7 @@ public class UserInterface {
             switch (choice) {
                 case "1":
                     System.out.println("You chose your bread to be toasted");
-                    return true ;
+                    return true;
                 case "0":
                     System.out.println("You chose your bread to be not toasted");
                     return false;
@@ -555,7 +569,126 @@ public class UserInterface {
             }
 
         }
+
     }
+    //methods to add extra cheese
+
+    public void extraCheese(Sandwich sandwich) {
+        while (true) {
+            System.out.println("Please chose your Extra cheese topping? ");
+            System.out.println("1) american");
+            System.out.println("2) provolone");
+            System.out.println("3) cheddar");
+            System.out.println("4) swiss");
+            System.out.println("0) None");
+
+            //read user input
+            String choice = scanner.nextLine();
+
+            if (choice.equals("0")) {
+                System.out.println("No Extra cheese toppings added"); // if the user selects none
+                return;
+
+            }
+
+            //split input by comma to handle multiple selections
+            String[] choices = choice.split(",");
+
+            //loop through each selected choice
+            for (String meatChoice : choices) {
+                switch (meatChoice.trim()) { //remove extra spaces
+                    case "1":
+                        sandwich.addExtraCheese("american");
+                        System.out.println("Extra American cheese added");
+                        break;
+                    case "2":
+                        sandwich.addExtraCheese("provolone");
+                        System.out.println("Extra Provolone cheese added");
+                        break;
+                    case "3":
+                        sandwich.addExtraCheese("cheddar");
+                        System.out.println("Extra Cheddar cheese added");
+                        break;
+                    case "4":
+                        sandwich.addExtraCheese("swiss");
+                        System.out.println("Extra swiss cheese added");
+                        break;
+                    default:
+                        System.out.println("Invalid choice: " + choice);//handle invalid input
+
+                        break;
+                }
+
+            }
+            return;
+
+        }
+    }
+   //method to add extra meat
+    public void extraMeat(Sandwich sandwich){
+
+        while (true) {
+            System.out.println("Please chose your Extra  meat topping? ");
+            System.out.println("1) Steak");
+            System.out.println("2) Ham");
+            System.out.println("3) Salami");
+            System.out.println("4) Roast Beef");
+            System.out.println("5) Chicken");
+            System.out.println("6) Bacon");
+            System.out.println("0) None");
+
+            //read user input
+            String choice = scanner.nextLine();
+
+            if (choice.equals("0")) {
+                System.out.println("No Extra meat toppings added"); // if the user selects none
+                return;
+
+            }
+
+            //split input by comma to handle multiple selections
+            String[] choices = choice.split(",");
+
+            //loop through each selected choice
+            for (String meatChoice : choices) {
+                switch (meatChoice.trim()) { //remove extra spaces
+                    case "1":
+                        sandwich.addExtraMeat("Steak");
+                        System.out.println("Extra Steak added");
+                        break;
+                    case "2":
+                        sandwich.addExtraMeat("Ham");
+                        System.out.println("Extra Ham added");
+                        break;
+                    case "3":
+                        sandwich.addExtraMeat("Salami");
+                        System.out.println("Extra Salami added");
+                        break;
+                    case "4":
+                        sandwich.addExtraMeat("Roast Beef");
+                        System.out.println("Extra Roast Beef added");
+                        break;
+                    case "5":
+                        sandwich.addExtraMeat("Chicken");
+                        System.out.println("Extra Chicken added");
+                        break;
+                    case "6":
+                        sandwich.addExtraMeat("Bacon");
+                        System.out.println("Extra Bacon added");
+                        break;
+                    default:
+                        System.out.println("Invalid choice: " + choice);//handle invalid input
+
+                        break;
+                }
+
+            }
+            return;
+
+        }
+
+    }
+
     //method to process checkout
     public void checkOut(){
         System.out.println("\n============================= ");
@@ -563,11 +696,21 @@ public class UserInterface {
         System.out.println("=============================");
         System.out.println(currentOrder.getOrderSummary());
         System.out.println("----------------------------- ");
-        System.out.println("Total: $" + currentOrder.getTotalPrice());
+        System.out.println(String.format("Total: $%.2f", currentOrder.getTotalPrice()));
         System.out.println("Thank you for your order!\n");
+
+        try{
+            ReceiptWriter.saveReceipt(currentOrder);
+            System.out.println("Receipt saved successfully!");
+        }catch (IOException e){
+            System.out.println("Error saving receipt: "+ e.getMessage());
+
+        }
         currentOrder= new Order(); //reset order after checkout
         mainMenu(); //return to main menu
+
     }
+
 }
 
 
