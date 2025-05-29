@@ -9,20 +9,24 @@ import com.pluralsight.util.ReceiptWriter;
 import javax.imageio.IIOException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner; //import scanner to read user input
 
 public class UserInterface {
-    private Order currentOrder = new Order();
+
+    private Order currentOrder;  //new order ()
+
     Scanner scanner = new Scanner(System.in); //create a scanner instance for input
 
     //Display the main menu where the user can start a new order or exist
     public void mainMenu() {
         while (true) {
 
-            System.out.println("1. New Order");     //menu option one
-            System.out.println("0. Exit");         //menu option to exist
-            String choice = scanner.nextLine();   //read users input
+        System.out.println("1.\uD83C\uDD95 New Order");     //menu option one
+        System.out.println("0.\uD83D\uDEAA Exit");         //menu option to exist
+        String choice = scanner.nextLine();   //read users input
+
 
             switch (choice) {
                 case "1":
@@ -45,12 +49,15 @@ public class UserInterface {
 
     //Display the order screen with options to add items or checkouts
     public void orderScreen() {
-        while (true) {
-            System.out.println("1. Add Sandwich");      //option 1
-            System.out.println("2. Add Drink");        //option 2
-            System.out.println("3. Add Chips");       //option 3
-            System.out.println("4. Checkout");       //option 4
-            System.out.println("0. Cancel Order");  //option 0 to cancel
+
+        currentOrder=new Order();
+        while (true){
+        System.out.println("1.\uD83E\uDD6A Add Sandwich");      //option 1
+        System.out.println("2.\uD83E\uDD64 Add Drink");        //option 2
+        System.out.println("3.\uD83C\uDF5F Add Chips");       //option 3
+        System.out.println("4.\uD83D\uDCB3  Checkout");       //option 4
+        System.out.println("0. Cancel Order");  //option 0 to cancel
+
 
             String choice = scanner.nextLine();   //Read user input
 
@@ -113,11 +120,11 @@ public class UserInterface {
     public void breadType(Sandwich sandwich) {
         //Display bread options to the user
         while (true) {
-            System.out.println("What type of bread do you want?");
-            System.out.println("1) white");
-            System.out.println("2) wheat");
-            System.out.println("3) rye");
-            System.out.println("4) wrap");
+            System.out.println("\uD83E\uDD56 What type of bread do you want?");
+            System.out.println("1) \uD83C\uDF5E white");
+            System.out.println("2) \uD83C\uDF3E wheat");
+            System.out.println("3) \uD83C\uDF5E rye");
+            System.out.println("4) \uD83C\uDF2F wrap");
 
             //Read the user's input
             String choice = scanner.nextLine();
@@ -188,16 +195,16 @@ public class UserInterface {
         while (true) {
 
             System.out.println("Choose your regular toppings: ");
-            System.out.println("1) Lettuce");
-            System.out.println("2) peppers");
-            System.out.println("3) Onions");
-            System.out.println("4) Tomatoes");
-            System.out.println("5) Jalapeños");
-            System.out.println("6) cucumbers");
-            System.out.println("7) pickles");
-            System.out.println("8) Guacamole");
-            System.out.println("9) Mushrooms");
-            System.out.println("0) None");
+            System.out.println("1) \uD83E\uDD6C Lettuce");
+            System.out.println("2) \uD83E\uDED1 peppers");
+            System.out.println("3) \uD83E\uDDC5 Onions");
+            System.out.println("4) \uD83C\uDF45 Tomatoes");
+            System.out.println("5) \uD83C\uDF36\uFE0F Jalapeños");
+            System.out.println("6) \uD83E\uDD52 cucumbers");
+            System.out.println("7) \uD83E\uDD52 pickles");
+            System.out.println("8) \uD83E\uDD51 Guacamole");
+            System.out.println("9) \uD83C\uDF44 Mushrooms");
+            System.out.println("0) \uD83D\uDEAB None");
 
             String regularChoice = scanner.nextLine(); //read user input
             if (regularChoice.equals("0")) {
@@ -264,14 +271,10 @@ public class UserInterface {
     //method to meatTopping
     public void meat(Sandwich sandwich) {
         while (true) {
-            System.out.println("Please chose your meat topping? ");
-            System.out.println("1) Steak");
-            System.out.println("2) Ham");
-            System.out.println("3) Salami");
-            System.out.println("4) Roast Beef");
-            System.out.println("5) Chicken");
-            System.out.println("6) Bacon");
-            System.out.println("0) None");
+
+
+
+            askMultipleQuestion("Please chose your meat topping? ", Arrays.asList("Steak", "Ham", "Salami","Roast Beef","Chicken","Bacon","None"));
 
             //read user input
             String choice = scanner.nextLine();
@@ -328,10 +331,10 @@ public class UserInterface {
         while (true) {
             System.out.println("Please chose your cheese topping? ");
             System.out.println("1) american");
-            System.out.println("2) provolone");
-            System.out.println("3) cheddar");
-            System.out.println("4) swiss");
-            System.out.println("0) None");
+            System.out.println("2) \uD83E\uDDC0 provolone");
+            System.out.println("3) \uD83E\uDDC0 cheddar");
+            System.out.println("4) \uD83E\uDDC0 swiss");
+            System.out.println("0) \uD83D\uDEAB None");
 
             //read user input
             String choice = scanner.nextLine();
@@ -378,13 +381,13 @@ public class UserInterface {
 
     public void sauces(Sandwich sandwich) {
         while (true) {
-            System.out.println("Please chose your sauces topping? ");
-            System.out.println("1) Mayo");
-            System.out.println("2) Mustard");
-            System.out.println("3) Ketchup");
-            System.out.println("4) Ranch");
-            System.out.println("5) Thousand islands");
-            System.out.println("0) None");
+            System.out.println(" \uD83E\uDD6B Please chose your sauces topping? ");
+            System.out.println("1) \uD83E\uDD44 Mayo");
+            System.out.println("2) \uD83C\uDF2D Mustard");
+            System.out.println("3) \uD83C\uDF45 Ketchup");
+            System.out.println("4) \uD83E\uDD5B Ranch");
+            System.out.println("5) \uD83E\uDD6D Thousand islands");
+            System.out.println("0) \uD83D\uDEAB None");
 
             //read user input
             String sauceChoice = scanner.nextLine();
@@ -466,12 +469,12 @@ public class UserInterface {
 
     public String drinkName() {
         while (true) {
-            System.out.println("Choose a drink:");
-            System.out.println("1) Coke");
-            System.out.println("2) Sprite");
-            System.out.println("3) Water");
-            System.out.println("4) Iced Tea");
-            System.out.println("0) Cancel");
+            System.out.println(" \uD83E\uDD64 Choose a drink:");
+            System.out.println("1) \uD83E\uDD64 Coke");
+            System.out.println("2) \uD83C\uDF4B Sprite");
+            System.out.println("3) \uD83D\uDCA7 Water");
+            System.out.println("4) \uD83C\uDF79 Iced Tea");
+            System.out.println("0) ❌ Cancel");
 
             String drinkName = "";
             String choice = scanner.nextLine();
@@ -501,13 +504,13 @@ public class UserInterface {
 
     public String chips(Order currentOrder) {
         while (true) {
-            System.out.println("Choose a Chips:");
-            System.out.println("1) Doritos");
-            System.out.println("2) SunChips");
-            System.out.println("3) Cheetos");
-            System.out.println("4) Lays");
-            System.out.println("5) Salt and Vinegar");
-            System.out.println("0) Cancel");
+            System.out.println(" \uD83C\uDF5F Choose a Chips:");
+            System.out.println("1) \uD83C\uDF36\uFE0F Doritos");
+            System.out.println("2) \uD83C\uDF3B SunChips");
+            System.out.println("3) \uD83E\uDDC0 Cheetos");
+            System.out.println("4) \uD83E\uDD54 Lays");
+            System.out.println("5) \uD83E\uDDC2 Salt and Vinegar");
+            System.out.println("0) ❌ Cancel");
 
             String choice = scanner.nextLine();
             if (choice.equals("0")) {
@@ -551,9 +554,9 @@ public class UserInterface {
 
     public boolean toasted() {
         while (true) {
-            System.out.println("Do you like your bread to be toasted? yes or no ");
-            System.out.println("1) Yes");
-            System.out.println("0) No");
+            System.out.println(" \uD83C\uDF5E Do you like your bread to be toasted? yes or no ");
+            System.out.println("1) \uD83D\uDC4D Yes");
+            System.out.println("0) \uD83D\uDC4E No");
             String choice = scanner.nextLine();
             switch (choice) {
                 case "1":
@@ -691,13 +694,12 @@ public class UserInterface {
 
     //method to process checkout
     public void checkOut(){
-        System.out.println("\n============================= ");
-        System.out.println("        Your Order Summery: ");
-        System.out.println("=============================");
+
+        System.out.println("\n============================== ");
+        System.out.println("       \uD83D\uDED2 Your Order Summery \uD83D\uDED2 ");
+        System.out.println("==============================");
         System.out.println(currentOrder.getOrderSummary());
         System.out.println("----------------------------- ");
-        System.out.println(String.format("Total: $%.2f", currentOrder.getTotalPrice()));
-        System.out.println("Thank you for your order!\n");
 
         try{
             ReceiptWriter.saveReceipt(currentOrder);
@@ -707,8 +709,25 @@ public class UserInterface {
 
         }
         currentOrder= new Order(); //reset order after checkout
+
+        System.out.println(" \uD83D\uDCB0 Total: $" + currentOrder.getTotalPrice());
+        System.out.println(" \uD83D\uDE4F Thank you for your order!\n");
+
         mainMenu(); //return to main menu
 
+    }
+
+
+    public void askMultipleQuestion( String prompt, List<String> options){
+        System.out.println(prompt);
+        for ( int i=0;  i < options.size(); i++){
+
+         if (i== options.size() -1){
+             System.out.println( "0) " + options.get(i));
+         }else {
+             System.out.println((i + 1) + ") " + options.get(i));
+         }
+        }
     }
 
 }
