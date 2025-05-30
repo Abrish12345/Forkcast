@@ -1,77 +1,77 @@
-# Forkcast
-DELI-cious is a Java-based, command-line Point-of-Sale (POS) system built for a custom sandwich shop.
-It allows users to build and customize sandwiches, add drinks and chips, and generate detailed receipts for each order. 
-Ideal for training and learning purposes, the app simulates a real-world deli ordering experience with a flexible menu system.
+🍴 Forkcast
+Forkcast is a command-line Java Point-of-Sale (POS) system for a custom sandwich shop.
 
-##Features
-🥪 Custom Sandwich Builder
-Choose bread type (white, wheat, rye, wrap)
+Built as a fork of the DELI-cious app, it allows users to build sandwiches, add drinks and chips, and receive itemized receipts—all from a clean, user-friendly terminal interface.
 
-Select bread size (4", 8", 12")
+⸻
 
-Option to toast the sandwich
+🚀 Features
 
-Choose one or multiple meats
+🥪 Sandwich Builder
 
-Add extra meat (additional cost)
+	•	Choose bread type (white, wheat, rye, wrap)
 
-Choose one or multiple cheeses
+	•	Select size (4”, 8”, 12”)
 
-Add extra cheese (additional cost)
+	•	Toast option
 
-Select unlimited toppings (lettuce, tomato, onions, etc.)
+	•	Add meats, cheeses, regular toppings, and sauces
 
-Choose multiple sauces (mayo, mustard, ranch, etc.)
+	•	Add extra meat and cheese (additional cost)
 
-🍹 Add Drinks
-Choose from available drink options (Coke, Sprite, etc.)
+🍹 Drinks
 
-Select size (Small, Medium, Large)
+	•	Choose size: small, medium, large
 
-🍟 Add Chips
-Choose from chip options like Doritos, Cheetos, Sunchips, etc.
+	•	Select from Coke, Sprite, Water, Iced Tea
 
-Add multiple chip bags to one order
+🍟 Chips
 
-📃 Order Summary and Receipt
-View full itemized order summary
+	•	Choose from Doritos, Cheetos, Sunchips, Lays, Salt & Vinegar
 
-Shows total price with breakdown
+	•	Add multiple bags
 
-Automatically generates and saves a receipt file
+📃 Order Summary
 
-🥇 Signature Sandwiches (Bonus Feature)
-Predefined sandwich templates:
+	•	View itemized receipt with prices
 
-BLT: Bacon, lettuce, tomato, cheddar, ranch, toasted
+	•	Total breakdown and tax
 
-Philly Cheese Steak: Steak, American cheese, peppers, mayo, toasted
+	•	Auto-saves receipt with timestamp
 
-Users can still customize signature sandwiches
+🥇 Signature Sandwiches
+
+	•	BLT and Philly Cheese Steak templates
+
+	•	Customizable after selection
 
 🔁 Multiple Orders
-Start a new order or exit after completing one
 
-Clears and resets current order on checkout
+	•	Start new order or exit after checkout
 
+	•	Clears cart between sessions
+ 🖼 User Flow
+
+🏠 Main Menu
+![Main Menu](src/main/resources/ScreenShot/Main_Menu.png)
+🧀 Cheese Selection
+![Alt Text](relative/path/to/image)
+🌿 Toppings Selection
+![New Order](src/main/resources/ScreenShot/New_Order.png)
+🥤 Add Drink
+![Alt Text](relative/path/to/image)
+🍟 Add Chips
+![Alt Text](relative/path/to/image)
+✅ Checkout
+![Alt Text](relative/path/to/image)
 
 ![Main Menu](src/main/resources/ScreenShot/Main_Menu.png)
 
  
-New Order
-1. Add Sandwich
-2. Add Drink
-3. Add Chips
-4. Checkout
-0. Cancel Order
+```
+```
 
-```
-```
-Add Sandwich
-Select bread size  (4", 8" and 12" ?
-1) 4 inch
-2) 8 inch
-3) 12 inch
+ 
 ```
 ```
 Choose your regular toppings: 
