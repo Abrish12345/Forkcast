@@ -54,7 +54,10 @@ Start a new order or exit after completing one
 
 Clears and resets current order on checkout
 
-```
+
+![Main Menu](src/main/resources/ScreenShot/Main_Menu.png)
+
+ 
 New Order
 1. Add Sandwich
 2. Add Drink
