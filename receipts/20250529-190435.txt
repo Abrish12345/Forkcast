@@ -1,0 +1,12 @@
+----Order Details----
+4" Sandwich on white (toasted)
+Meat: [Steak] (Extra Meat: [Steak])
+Cheese: [american] (Extra Cheese: [american])
+Toppings: [Lettuce, peppers]
+Sauces: [Mustard] - $8.05
+Small Coke - $2.00
+Doritos Chips - $1.50
+
+
+Total Price: $11.55
+Thanks for your order

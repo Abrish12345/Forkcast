@@ -49,8 +49,8 @@ public class UserInterface {
 
     //Display the order screen with options to add items or checkouts
     public void orderScreen() {
+        currentOrder= new Order(); //reset order after checkout
 
-        currentOrder=new Order();
         while (true){
         System.out.println("1.\uD83E\uDD6A Add Sandwich");      //option 1
         System.out.println("2.\uD83E\uDD64 Add Drink");        //option 2
@@ -708,12 +708,12 @@ public class UserInterface {
             System.out.println("Error saving receipt: "+ e.getMessage());
 
         }
-        currentOrder= new Order(); //reset order after checkout
+
 
         System.out.println(" \uD83D\uDCB0 Total: $" + currentOrder.getTotalPrice());
         System.out.println(" \uD83D\uDE4F Thank you for your order!\n");
 
-        mainMenu(); //return to main menu
+       // mainMenu(); //return to main menu
 
     }
 

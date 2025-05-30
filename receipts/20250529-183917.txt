@@ -1,0 +1,12 @@
+----Order Details----
+12" Sandwich on white (toasted)
+Meat: [Steak, Ham, Salami, Roast Beef] (Extra Meat: [Steak, Ham, Salami])
+Cheese: [american] (Extra Cheese: [provolone, cheddar, swiss])
+Toppings: [peppers]
+Sauces: [Mayo, Mustard, Ketchup] - $29.95
+Small Coke - $2.00
+Doritos Chips - $1.50
+
+
+Total Price: $33.45
+Thanks for your order

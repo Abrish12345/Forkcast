@@ -1,0 +1,10 @@
+----Order Details----
+4" Sandwich on white (toasted)
+Meat: [Steak] (Extra Meat: [Steak])
+Cheese: [american] (Extra Cheese: [american])
+Toppings: [peppers]
+Sauces: [Mayo] - $8.05
+
+
+Total Price: $8.05
+Thanks for your order
