@@ -54,37 +54,20 @@ Built as a fork of the DELI-cious app, it allows users to build sandwiches, add 
 
 🏠 Main Menu
 ![Main Menu](src/main/resources/ScreenShot/Main_Menu.png)
-🧀 Cheese Selection
-![Alt Text](relative/path/to/image)
-🌿 Toppings Selection
-![New Order](src/main/resources/ScreenShot/New_Order.png)
+
+🌿 New order Selection
+![New_Order](src/main/resources/ScreenShot/New_Order.png)
+
+🧀 Regular Topping Selection
+![Regular_Topping](src/main/resources/ScreenShot/regular_topping.png)
+
 🥤 Add Drink
-![Alt Text](relative/path/to/image)
+![Add Drink](src/main/resources/ScreenShot/addDrink.png)
 🍟 Add Chips
-![Alt Text](relative/path/to/image)
+![Add Chips](src/main/resources/ScreenShot/addChips.png)
 ✅ Checkout
-![Alt Text](relative/path/to/image)
+![Check_out](src/main/resources/ScreenShot/Check_out.png)
 
-![Main Menu](src/main/resources/ScreenShot/Main_Menu.png)
-
- 
-```
-```
-
- 
-```
-```
-Choose your regular toppings: 
-1) Lettuce
-2) peppers
-3) Onions
-4) Tomatoes
-5) Jalapeños
-6) cucumbers
-7) pickles
-8) Guacamole
-9) Mushrooms
-0) None
 
 ```
 ```
