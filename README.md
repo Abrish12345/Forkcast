@@ -53,19 +53,27 @@ Built as a fork of the DELI-cious app, it allows users to build sandwiches, add 
  🖼 User Flow
 
 🏠 Main Menu
+
 ![Main Menu](src/main/resources/ScreenShot/Main_Menu.png)
 
 🌿 New order Selection
+
 ![New_Order](src/main/resources/ScreenShot/New_Order.png)
 
 🧀 Regular Topping Selection
+
 ![Regular_Topping](src/main/resources/ScreenShot/regular_topping.png)
 
 🥤 Add Drink
+
 ![Add Drink](src/main/resources/ScreenShot/addDrink.png)
+
 🍟 Add Chips
+
 ![Add Chips](src/main/resources/ScreenShot/addChips.png)
+
 ✅ Checkout
+
 ![Check_out](src/main/resources/ScreenShot/Check_out.png)
 
 
